@@ -1,19 +1,21 @@
+// Configure express app
 const express = require('express');
 const app = express();
 const port = 3000;
 
-const dbConnection = require('./src/db');
+// Import quote controller module
+const quotesController = require('./src/quotesController');
 
-app.get('/', (req, res) => {
-	dbConnection.query('SELECT * from quotes', (err, results, fields) => {
-		if(err) {
-			res.status(500).end('Error querying the database.');
-		}
-		
-		res.send(fields);
-	});
-});
+// Configure express for JSON
+app.use(express.json());
 
+// Define routes
+app.get('/quotes', quotesController.getAllQuotes);
+app.post('/quotes', quotesController.addQuote);
+app.put('/quotes:id', quotesController.updateQuote);
+app.delete('/quotes:id', quotesController.deleteQuote);
+
+// Start server
 app.listen(port, () => {
 	console.log(`Server listening on port ${port}`);
 });
