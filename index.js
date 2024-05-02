@@ -6,7 +6,7 @@ const port = 3000;
 // Import quote controller module
 const quotesController = require('./src/quotesController');
 
-// Configure express for JSON
+// Middleware
 app.use(express.json());
 
 // Define routes
