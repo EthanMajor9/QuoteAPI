@@ -11,6 +11,7 @@ app.use(express.json());
 
 // Define routes
 app.get('/quotes', quotesController.getAllQuotes);
+app.get('/quotes:author', quotesController.getAllQuotesFromAuthor);
 app.post('/quotes', quotesController.addQuote);
 app.put('/quotes:id', quotesController.updateQuote);
 app.delete('/quotes:id', quotesController.deleteQuote);

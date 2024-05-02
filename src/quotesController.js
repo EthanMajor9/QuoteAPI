@@ -59,9 +59,22 @@ const updateQuote = (req, res) => {
 	});
 };
 
+const getAllQuotesFromAuthor = (req, res) => {
+	const authorParam = req.params['author'];
+	const author = authorParam.substring(authorParam.indexOf(':') + 1);
+
+	const query = 'SELECT * FROM quotes WHERE author = ?';
+	dbConnection.query(query, [author], (err, rows) => {
+		if(err) return res.status(500).send({error: err});
+
+		res.status(200).send(rows);
+	});
+};
+
 module.exports = {
 	getAllQuotes,
 	addQuote,
 	deleteQuote,
 	updateQuote,
+	getAllQuotesFromAuthor
 };
