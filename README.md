@@ -14,4 +14,4 @@ The inspiration for this project came from a personal experience. For the past c
 
 ## Integration with Quotable
 
-QuoteAPI is designed to work alongside the Quotable frontend application, which provides a user-friendly interface for accessing and managing quotes. You can find the Quotable repository <a href=""> here </a>.
+QuoteAPI is designed to work alongside the Quotable frontend application, which provides a user-friendly interface for accessing and managing quotes. You can find the Quotable repository <a href="https://github.com/EthanMajor9/Quotable"> here </a>.
